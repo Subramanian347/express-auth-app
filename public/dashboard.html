@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Chaos Carnival</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            500: '#9147ff',
+                        },
+                        secondary: {
+                            500: '#00b4d8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .color-transition {
+            transition: all 0.5s ease;
+        }
+        .rainbow-text {
+            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: rainbow 5s linear infinite;
+            background-size: 200% 100%;
+        }
+        @keyframes rainbow {
+            0% {background-position: 0% 50%;}
+            100% {background-position: 100% 50%;}
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200">
+    <div class="container mx-auto px-4 py-12">
+        <div class="text-center mb-16">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 rainbow-text">Color Chaos Carnival</h1>
+            <p class="text-xl text-gray-600">Where undefined colors meet undefined themes!</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 transition duration-500">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-full bg-primary-500 flex items-center justify-center text-white mr-4">
+                        <i data-feather="droplet"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">Primary Color</h2>
+                </div>
+                <p class="text-gray-600 mb-4">Our undefined primary color shines bright!</p>
+                <div class="flex space-x-2">
+                    <div class="w-8 h-8 rounded-full bg-primary-500"></div>
+                    <div class="w-8 h-8 rounded-full bg-primary-400"></div>
+                    <div class="w-8 h-8 rounded-full bg-primary-600"></div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 transition duration-500">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-full bg-secondary-500 flex items-center justify-center text-white mr-4">
+                        <i data-feather="palette"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">Secondary Color</h2>
+                </div>
+                <p class="text-gray-600 mb-4">Our undefined secondary color complements perfectly!</p>
+                <div class="flex space-x-2">
+                    <div class="w-8 h-8 rounded-full bg-secondary-500"></div>
+                    <div class="w-8 h-8 rounded-full bg-secondary-400"></div>
+                    <div class="w-8 h-8 rounded-full bg-secondary-600"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-xl p-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Theme: Undefined Mode</h2>
+            <p class="text-gray-600 mb-8">Experience the magic of our undefined theme mode!</p>
+            <button class="px-8 py-3 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-full transition duration-300 transform hover:scale-105">
+                Join the Carnival
+                <i data-feather="arrow-right" class="ml-2"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        feather.replace();
+        
+        // Random color generator for fun
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.color-transition');
+            setInterval(() => {
+                elements.forEach(el => {
+                    const randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+                    el.style.backgroundColor = randomColor;
+                });
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
